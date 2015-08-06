@@ -1,0 +1,559 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C12A1C561B7345BE00768049 /* FlickrImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12A1C551B7345BE00768049 /* FlickrImageCell.swift */; };
+		C12A1C581B7345E200768049 /* FlickrImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12A1C571B7345E200768049 /* FlickrImagesCollectionViewController.swift */; };
+		C12A1C5C1B734A4E00768049 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12A1C5B1B734A4E00768049 /* LoaderViewController.swift */; };
+		C12A1C5F1B734AB700768049 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12A1C5D1B734AB700768049 /* AppDelegate.swift */; };
+		C12A1C631B734AEE00768049 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C12A1C621B734AEE00768049 /* Images.xcassets */; };
+		C12A1C681B734AF900768049 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12A1C641B734AF900768049 /* LaunchScreen.xib */; };
+		C12A1C691B734AF900768049 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C12A1C661B734AF900768049 /* Main.storyboard */; };
+		C12A1C6B1B734B2000768049 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C12A1C6A1B734B2000768049 /* Info.plist */; };
+		C16A36511B73952200122F50 /* NDRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A36501B73952200122F50 /* NDRefreshControl.swift */; };
+		C1AB0FDE1B733BA700DFAFBC /* SummerCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB0FDD1B733BA700DFAFBC /* SummerCodeTests.swift */; };
+		C3BF7A530B082EA861029DD2 /* Pods_SummerCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684A2F7645AB7658EDF65A9 /* Pods_SummerCode.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C1AB0FD81B733BA700DFAFBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1AB0FB81B733BA700DFAFBC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1AB0FBF1B733BA700DFAFBC;
+			remoteInfo = SummerCode;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0AAF5189CB21A1DBF3246801 /* Pods-SummerCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SummerCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-SummerCode/Pods-SummerCode.release.xcconfig"; sourceTree = "<group>"; };
+		C12A1C551B7345BE00768049 /* FlickrImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlickrImageCell.swift; path = Modules/HanekeSwift/FlickrImageCell.swift; sourceTree = "<group>"; };
+		C12A1C571B7345E200768049 /* FlickrImagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlickrImagesCollectionViewController.swift; path = Modules/HanekeSwift/FlickrImagesCollectionViewController.swift; sourceTree = "<group>"; };
+		C12A1C5B1B734A4E00768049 /* LoaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoaderViewController.swift; path = Modules/FillableLoaders/LoaderViewController.swift; sourceTree = "<group>"; };
+		C12A1C5D1B734AB700768049 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Application/AppDelegate.swift; sourceTree = "<group>"; };
+		C12A1C621B734AEE00768049 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Views/Images.xcassets; sourceTree = "<group>"; };
+		C12A1C651B734AF900768049 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Views/Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C12A1C671B734AF900768049 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Views/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C12A1C6A1B734B2000768049 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Application/Info.plist; sourceTree = "<group>"; };
+		C16A36501B73952200122F50 /* NDRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NDRefreshControl.swift; path = Vendor/NDRefresh/NDRefreshControl.swift; sourceTree = "<group>"; };
+		C1AB0FC01B733BA700DFAFBC /* SummerCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SummerCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1AB0FD71B733BA700DFAFBC /* SummerCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SummerCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1AB0FDC1B733BA700DFAFBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1AB0FDD1B733BA700DFAFBC /* SummerCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummerCodeTests.swift; sourceTree = "<group>"; };
+		D684A2F7645AB7658EDF65A9 /* Pods_SummerCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SummerCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E64AE439E4D99A9D8AB10384 /* Pods-SummerCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SummerCode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SummerCode/Pods-SummerCode.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C1AB0FBD1B733BA700DFAFBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3BF7A530B082EA861029DD2 /* Pods_SummerCode.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1AB0FD41B733BA700DFAFBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58B8C8943C92DB8DAC1D146B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E64AE439E4D99A9D8AB10384 /* Pods-SummerCode.debug.xcconfig */,
+				0AAF5189CB21A1DBF3246801 /* Pods-SummerCode.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C12A1C521B73455C00768049 /* HanekeSwift */ = {
+			isa = PBXGroup;
+			children = (
+				C12A1C571B7345E200768049 /* FlickrImagesCollectionViewController.swift */,
+				C12A1C551B7345BE00768049 /* FlickrImageCell.swift */,
+			);
+			name = HanekeSwift;
+			sourceTree = "<group>";
+		};
+		C12A1C531B73457100768049 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C12A1C591B734A1200768049 /* FillableLoaders */,
+				C12A1C521B73455C00768049 /* HanekeSwift */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		C12A1C591B734A1200768049 /* FillableLoaders */ = {
+			isa = PBXGroup;
+			children = (
+				C12A1C5B1B734A4E00768049 /* LoaderViewController.swift */,
+			);
+			name = FillableLoaders;
+			sourceTree = "<group>";
+		};
+		C12A1C5A1B734A2300768049 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C12A1C5D1B734AB700768049 /* AppDelegate.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		C12A1C611B734ADB00768049 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C12A1C641B734AF900768049 /* LaunchScreen.xib */,
+				C12A1C661B734AF900768049 /* Main.storyboard */,
+				C12A1C621B734AEE00768049 /* Images.xcassets */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C1AB0FB71B733BA700DFAFBC = {
+			isa = PBXGroup;
+			children = (
+				C1AB0FC21B733BA700DFAFBC /* SummerCode */,
+				C1AB0FDA1B733BA700DFAFBC /* SummerCodeTests */,
+				C1AB0FC11B733BA700DFAFBC /* Products */,
+				58B8C8943C92DB8DAC1D146B /* Pods */,
+				F4AFC20B500E71DF6E56604C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C1AB0FC11B733BA700DFAFBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1AB0FC01B733BA700DFAFBC /* SummerCode.app */,
+				C1AB0FD71B733BA700DFAFBC /* SummerCodeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C1AB0FC21B733BA700DFAFBC /* SummerCode */ = {
+			isa = PBXGroup;
+			children = (
+				C12A1C5A1B734A2300768049 /* Application */,
+				C12A1C531B73457100768049 /* Modules */,
+				C12A1C611B734ADB00768049 /* Views */,
+				C1AB0FC31B733BA700DFAFBC /* Supporting Files */,
+			);
+			path = SummerCode;
+			sourceTree = "<group>";
+		};
+		C1AB0FC31B733BA700DFAFBC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C12A1C6A1B734B2000768049 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C1AB0FDA1B733BA700DFAFBC /* SummerCodeTests */ = {
+			isa = PBXGroup;
+			children = (
+				C1AB0FDD1B733BA700DFAFBC /* SummerCodeTests.swift */,
+				C1AB0FDB1B733BA700DFAFBC /* Supporting Files */,
+			);
+			path = SummerCodeTests;
+			sourceTree = "<group>";
+		};
+		C1AB0FDB1B733BA700DFAFBC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C1AB0FDC1B733BA700DFAFBC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F4AFC20B500E71DF6E56604C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C16A36501B73952200122F50 /* NDRefreshControl.swift */,
+				D684A2F7645AB7658EDF65A9 /* Pods_SummerCode.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C1AB0FBF1B733BA700DFAFBC /* SummerCode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1AB0FE11B733BA700DFAFBC /* Build configuration list for PBXNativeTarget "SummerCode" */;
+			buildPhases = (
+				36DC88E0420119D5EA199405 /* Check Pods Manifest.lock */,
+				C1AB0FBC1B733BA700DFAFBC /* Sources */,
+				C1AB0FBD1B733BA700DFAFBC /* Frameworks */,
+				C1AB0FBE1B733BA700DFAFBC /* Resources */,
+				C500071976A2245D133DDB97 /* Embed Pods Frameworks */,
+				4611E69B8C1C63A766BA475E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SummerCode;
+			productName = SummerCode;
+			productReference = C1AB0FC01B733BA700DFAFBC /* SummerCode.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C1AB0FD61B733BA700DFAFBC /* SummerCodeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1AB0FE41B733BA700DFAFBC /* Build configuration list for PBXNativeTarget "SummerCodeTests" */;
+			buildPhases = (
+				C1AB0FD31B733BA700DFAFBC /* Sources */,
+				C1AB0FD41B733BA700DFAFBC /* Frameworks */,
+				C1AB0FD51B733BA700DFAFBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1AB0FD91B733BA700DFAFBC /* PBXTargetDependency */,
+			);
+			name = SummerCodeTests;
+			productName = SummerCodeTests;
+			productReference = C1AB0FD71B733BA700DFAFBC /* SummerCodeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C1AB0FB81B733BA700DFAFBC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = com.igz;
+				TargetAttributes = {
+					C1AB0FBF1B733BA700DFAFBC = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					C1AB0FD61B733BA700DFAFBC = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = C1AB0FBF1B733BA700DFAFBC;
+					};
+				};
+			};
+			buildConfigurationList = C1AB0FBB1B733BA700DFAFBC /* Build configuration list for PBXProject "SummerCode" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C1AB0FB71B733BA700DFAFBC;
+			productRefGroup = C1AB0FC11B733BA700DFAFBC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C1AB0FBF1B733BA700DFAFBC /* SummerCode */,
+				C1AB0FD61B733BA700DFAFBC /* SummerCodeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C1AB0FBE1B733BA700DFAFBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C12A1C6B1B734B2000768049 /* Info.plist in Resources */,
+				C12A1C691B734AF900768049 /* Main.storyboard in Resources */,
+				C12A1C631B734AEE00768049 /* Images.xcassets in Resources */,
+				C12A1C681B734AF900768049 /* LaunchScreen.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1AB0FD51B733BA700DFAFBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		36DC88E0420119D5EA199405 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4611E69B8C1C63A766BA475E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SummerCode/Pods-SummerCode-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C500071976A2245D133DDB97 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SummerCode/Pods-SummerCode-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C1AB0FBC1B733BA700DFAFBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C16A36511B73952200122F50 /* NDRefreshControl.swift in Sources */,
+				C12A1C5F1B734AB700768049 /* AppDelegate.swift in Sources */,
+				C12A1C5C1B734A4E00768049 /* LoaderViewController.swift in Sources */,
+				C12A1C561B7345BE00768049 /* FlickrImageCell.swift in Sources */,
+				C12A1C581B7345E200768049 /* FlickrImagesCollectionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1AB0FD31B733BA700DFAFBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1AB0FDE1B733BA700DFAFBC /* SummerCodeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C1AB0FD91B733BA700DFAFBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1AB0FBF1B733BA700DFAFBC /* SummerCode */;
+			targetProxy = C1AB0FD81B733BA700DFAFBC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C12A1C641B734AF900768049 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C12A1C651B734AF900768049 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		C12A1C661B734AF900768049 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C12A1C671B734AF900768049 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C1AB0FDF1B733BA700DFAFBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C1AB0FE01B733BA700DFAFBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C1AB0FE21B733BA700DFAFBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E64AE439E4D99A9D8AB10384 /* Pods-SummerCode.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/SummerCode/Application/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C1AB0FE31B733BA700DFAFBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AAF5189CB21A1DBF3246801 /* Pods-SummerCode.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/SummerCode/Application/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C1AB0FE51B733BA700DFAFBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SummerCodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SummerCode.app/SummerCode";
+			};
+			name = Debug;
+		};
+		C1AB0FE61B733BA700DFAFBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SummerCodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SummerCode.app/SummerCode";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C1AB0FBB1B733BA700DFAFBC /* Build configuration list for PBXProject "SummerCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1AB0FDF1B733BA700DFAFBC /* Debug */,
+				C1AB0FE01B733BA700DFAFBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1AB0FE11B733BA700DFAFBC /* Build configuration list for PBXNativeTarget "SummerCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1AB0FE21B733BA700DFAFBC /* Debug */,
+				C1AB0FE31B733BA700DFAFBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1AB0FE41B733BA700DFAFBC /* Build configuration list for PBXNativeTarget "SummerCodeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1AB0FE51B733BA700DFAFBC /* Debug */,
+				C1AB0FE61B733BA700DFAFBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C1AB0FB81B733BA700DFAFBC /* Project object */;
+}
