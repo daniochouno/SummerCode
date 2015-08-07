@@ -9,8 +9,6 @@ This project aims to be a starting point to deepen the knowledge of some of the 
 - [Punctual](https://github.com/harlanhaskins/Punctual.swift) for **Easy management with dates**, via CocoaPods
 - [NDRefresh](https://github.com/Nextdoor/NDRefresh) for **Creating customizables Pull-To-Refresh views**, via Manual Installation
 
-#### Modules
-
 **Image caching**
 -----------------
 
