@@ -12,6 +12,8 @@ This project aims to be a starting point to deepen the knowledge of some of the 
 **Image caching**
 -----------------
 
+![SummerCode image caching screenshot](https://github.com/igzdanielmartinez/SummerCode/blob/master/Resources/Screenshots/ImageCaching.png) 
+
 A collection of URLs of images is downloaded from **Flickr** using their API. Pressing the top right button you can enable or disable caching with **Haneke**.
 
 If the cache is disabled (by default), the image is displayed by connecting to the URL using the **NSURLSession** class and **dataTaskWithURL** method.
@@ -27,9 +29,11 @@ In the 'PullToRefresh' the **NDRefresh** library has been used, which allows you
 **Fillable Loaders**
 --------------------
 
+![SummerCode fillable loaders screenshot](https://github.com/igzdanielmartinez/SummerCode/blob/master/Resources/Screenshots/FillableLoaders.png)
+
 **FillableLoaders** library allows create a view using any vector graphics that can be built through the CoreGraphics library. This example uses a graphic provided by the library, but you could use any other built similarly.
 
 ## Author
-Daniel Martínez (daniel.martinez@intelygenz.com)
+Daniel Martmnez (daniel.martinez@intelygenz.com)
 
 &copy; 2015
