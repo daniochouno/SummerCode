@@ -12,6 +12,7 @@ This project aims to be a starting point to deepen the knowledge of some of the 
 #### Modules
 
 **Image caching**
+-----------------
 
 A collection of URLs of images is downloaded from **Flickr** using their API. Pressing the top right button you can enable or disable caching with **Haneke**.
 
@@ -26,6 +27,7 @@ In a **'PullToRefresh'** event, both caches (which manages NSURLSession and mana
 In the 'PullToRefresh' the **NDRefresh** library has been used, which allows you to customize the view shown, using images. Very useful if you want, for example, displaying a banner ad while the data is being reloaded.
 
 **Fillable Loaders**
+--------------------
 
 **FillableLoaders** library allows create a view using any vector graphics that can be built through the CoreGraphics library. This example uses a graphic provided by the library, but you could use any other built similarly.
 
