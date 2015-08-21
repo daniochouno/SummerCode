@@ -54,6 +54,7 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-SummerCode/Alamofire.framework'
   install_framework 'Pods-SummerCode/FillableLoaders.framework'
+  install_framework 'Pods-SummerCode/Font_Awesome_Swift.framework'
   install_framework 'Pods-SummerCode/Haneke.framework'
   install_framework 'Pods-SummerCode/Punctual.framework'
   install_framework 'Pods-SummerCode/SCLAlertView.framework'
@@ -61,6 +62,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-SummerCode/Alamofire.framework'
   install_framework 'Pods-SummerCode/FillableLoaders.framework'
+  install_framework 'Pods-SummerCode/Font_Awesome_Swift.framework'
   install_framework 'Pods-SummerCode/Haneke.framework'
   install_framework 'Pods-SummerCode/Punctual.framework'
   install_framework 'Pods-SummerCode/SCLAlertView.framework'

@@ -9,11 +9,24 @@
 import UIKit
 
 import SCLAlertView
+import Font_Awesome_Swift
 
 class HomeViewController: UITableViewController {
     
+    @IBOutlet weak var infoIconButton: UIButton!
+    @IBOutlet weak var editIconButton: UIButton!
+    @IBOutlet weak var noticeIconButton: UIButton!
+    @IBOutlet weak var warningIconButton: UIButton!
+    @IBOutlet weak var errorIconButton: UIButton!
+    
+    @IBOutlet weak var menuBarButton: UIBarButtonItem!
+    
     var sideMenu: UIView!
     var screenImageView: UIImageView!
+    
+    override func viewDidLoad() {
+        self.menuBarButton.FAIcon = FAType.FABars
+    }
 
     func captureScreen() -> UIImage {
         UIGraphicsBeginImageContextWithOptions(view.frame.size, view.opaque, 0.0)
@@ -89,6 +102,14 @@ class HomeViewController: UITableViewController {
         sideMenu.tag = 9999
         sideMenu.alpha = 0
         sideMenu.frame.origin.y = -10
+        
+        // Customize icons:
+        infoIconButton.setFAIcon(FAType.FAInfo, forState: .Normal)
+        editIconButton.setFAIcon(FAType.FAPencil, forState: .Normal)
+        noticeIconButton.setFAIcon(FAType.FABell, forState: .Normal)
+        warningIconButton.setFAIcon(FAType.FAExclamationTriangle, forState: .Normal)
+        errorIconButton.setFAIcon(FAType.FAExclamationCircle, forState: .Normal)
+        
         view.addSubview(sideMenu)
         
         // Hide all other subviews

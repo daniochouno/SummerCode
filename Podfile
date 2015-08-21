@@ -8,6 +8,7 @@ target 'SummerCode' do
 	pod 'FillableLoaders'				# Customizables and fillable loaders
 	pod 'Punctual'						# Dates
     pod 'SCLAlertView'                  # Animated Alert views
+    pod 'Font-Awesome-Swift'            # 'Font Awesome' integration
 end
 
 target 'SummerCodeTests' do
