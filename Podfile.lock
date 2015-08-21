@@ -3,17 +3,20 @@ PODS:
   - FillableLoaders (0.0.2)
   - HanekeSwift (0.9.1)
   - Punctual (0.0.3)
+  - SCLAlertView (0.4.1)
 
 DEPENDENCIES:
   - Alamofire
   - FillableLoaders
   - HanekeSwift
   - Punctual
+  - SCLAlertView
 
 SPEC CHECKSUMS:
   Alamofire: 220403a8d5840e0b4c946a6fbaf209dbca124282
   FillableLoaders: 9f01555e1546ff6565afd90639c7e26c8df8e3ed
   HanekeSwift: 50d37bfbc4432edc649167e538c259feccb4a2bb
   Punctual: 202fd42f60f1db369ff4f636e251af3ac98ff144
+  SCLAlertView: 9e60641edd9efcfc6d58227558eb7b03678dbcf3
 
 COCOAPODS: 0.38.2

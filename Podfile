@@ -7,6 +7,7 @@ target 'SummerCode' do
 	pod 'HanekeSwift'					# Caching
 	pod 'FillableLoaders'				# Customizables and fillable loaders
 	pod 'Punctual'						# Dates
+    pod 'SCLAlertView'                  # Animated Alert views
 end
 
 target 'SummerCodeTests' do

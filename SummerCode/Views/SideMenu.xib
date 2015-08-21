@@ -13,47 +13,71 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JqR-pC-Ko0" userLabel="ContentView">
                     <rect key="frame" x="13" y="19" width="100" height="300"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBY-RK-vpH" userLabel="Option1">
-                            <rect key="frame" x="23" y="30" width="55" height="30"/>
-                            <state key="normal" title="Option1">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBY-RK-vpH" userLabel="AlertInfo">
+                            <rect key="frame" x="20" y="30" width="30" height="30"/>
+                            <state key="normal" title="Info">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="infoPushed:" destination="-2" eventType="touchUpInside" id="DEj-Cf-lrn"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TJ-PK-YY8" userLabel="Option2">
-                            <rect key="frame" x="23" y="75" width="55" height="30"/>
-                            <state key="normal" title="Option2">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TJ-PK-YY8" userLabel="AlertEdit">
+                            <rect key="frame" x="20" y="75" width="30" height="30"/>
+                            <state key="normal" title="Edit">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="editPushed:" destination="-2" eventType="touchUpInside" id="0pC-qK-x6K"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5c-VS-Hyq" userLabel="Option3">
-                            <rect key="frame" x="23" y="120" width="55" height="30"/>
-                            <state key="normal" title="Option3">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5c-VS-Hyq" userLabel="AlertNotice">
+                            <rect key="frame" x="20" y="120" width="45" height="30"/>
+                            <state key="normal" title="Notice">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="noticePushed:" destination="-2" eventType="touchUpInside" id="a85-dR-UsE"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByS-y4-xfO" userLabel="Option4">
-                            <rect key="frame" x="23" y="165" width="55" height="30"/>
-                            <state key="normal" title="Option4">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByS-y4-xfO" userLabel="AlertWarning">
+                            <rect key="frame" x="20" y="165" width="57" height="30"/>
+                            <state key="normal" title="Warning">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="warningPushed:" destination="-2" eventType="touchUpInside" id="LEj-4p-YJH"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fA6-5x-1mS" userLabel="AlertError">
+                            <rect key="frame" x="20" y="210" width="34" height="30"/>
+                            <state key="normal" title="Error">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="errorPushed:" destination="-2" eventType="touchUpInside" id="ut8-7R-K4D"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="centerX" secondItem="0TJ-PK-YY8" secondAttribute="centerX" id="2Ob-dT-ozt"/>
                         <constraint firstAttribute="width" constant="100" id="2nY-6c-zvI"/>
                         <constraint firstAttribute="height" constant="300" id="5aJ-bL-45X"/>
                         <constraint firstItem="QBY-RK-vpH" firstAttribute="top" secondItem="JqR-pC-Ko0" secondAttribute="top" constant="30" id="5zS-Tu-WCx"/>
-                        <constraint firstAttribute="centerX" secondItem="E5c-VS-Hyq" secondAttribute="centerX" id="6BF-zC-AQi"/>
-                        <constraint firstAttribute="centerX" secondItem="ByS-y4-xfO" secondAttribute="centerX" id="cDD-If-EFm"/>
+                        <constraint firstItem="fA6-5x-1mS" firstAttribute="top" secondItem="ByS-y4-xfO" secondAttribute="bottom" constant="15" id="HTo-uT-YyD"/>
+                        <constraint firstItem="0TJ-PK-YY8" firstAttribute="leading" secondItem="JqR-pC-Ko0" secondAttribute="leading" constant="20" id="IJD-pc-7lC"/>
+                        <constraint firstItem="QBY-RK-vpH" firstAttribute="leading" secondItem="JqR-pC-Ko0" secondAttribute="leading" constant="20" id="ZJe-qI-FDb"/>
                         <constraint firstItem="ByS-y4-xfO" firstAttribute="top" secondItem="E5c-VS-Hyq" secondAttribute="bottom" constant="15" id="d0q-rB-UdD"/>
-                        <constraint firstAttribute="centerX" secondItem="QBY-RK-vpH" secondAttribute="centerX" id="iF6-uh-vjI"/>
                         <constraint firstItem="E5c-VS-Hyq" firstAttribute="top" secondItem="0TJ-PK-YY8" secondAttribute="bottom" constant="15" id="j4f-RL-W5z"/>
                         <constraint firstItem="0TJ-PK-YY8" firstAttribute="top" secondItem="QBY-RK-vpH" secondAttribute="bottom" constant="15" id="pld-cP-GxH"/>
+                        <constraint firstItem="fA6-5x-1mS" firstAttribute="leading" secondItem="JqR-pC-Ko0" secondAttribute="leading" constant="20" id="sJe-Jm-yX1"/>
+                        <constraint firstItem="E5c-VS-Hyq" firstAttribute="leading" secondItem="JqR-pC-Ko0" secondAttribute="leading" constant="20" id="tlN-9G-Ocq"/>
+                        <constraint firstItem="ByS-y4-xfO" firstAttribute="leading" secondItem="JqR-pC-Ko0" secondAttribute="leading" constant="20" id="u9k-Ki-ywx"/>
                     </constraints>
                 </view>
             </subviews>

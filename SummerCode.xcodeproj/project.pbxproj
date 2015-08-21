@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C12852A71B8705ED0000C263 /* SideMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12852A61B8705ED0000C263 /* SideMenu.xib */; };
 		C12852AB1B8708EB0000C263 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12852AA1B8708EB0000C263 /* HomeViewController.swift */; };
-		C12852AD1B87117D0000C263 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12852AC1B87117D0000C263 /* NavigationController.swift */; };
 		C12A1C561B7345BE00768049 /* FlickrImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12A1C551B7345BE00768049 /* FlickrImageCell.swift */; };
 		C12A1C581B7345E200768049 /* FlickrImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12A1C571B7345E200768049 /* FlickrImagesCollectionViewController.swift */; };
 		C12A1C5C1B734A4E00768049 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12A1C5B1B734A4E00768049 /* LoaderViewController.swift */; };
@@ -18,6 +17,7 @@
 		C12A1C681B734AF900768049 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12A1C641B734AF900768049 /* LaunchScreen.xib */; };
 		C12A1C691B734AF900768049 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C12A1C661B734AF900768049 /* Main.storyboard */; };
 		C12A1C6B1B734B2000768049 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C12A1C6A1B734B2000768049 /* Info.plist */; };
+		C162B54C1B872495006B0C94 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C162B54B1B872495006B0C94 /* README.md */; };
 		C16A36511B73952200122F50 /* NDRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A36501B73952200122F50 /* NDRefreshControl.swift */; };
 		C1AB0FDE1B733BA700DFAFBC /* SummerCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB0FDD1B733BA700DFAFBC /* SummerCodeTests.swift */; };
 		C3BF7A530B082EA861029DD2 /* Pods_SummerCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684A2F7645AB7658EDF65A9 /* Pods_SummerCode.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -37,7 +37,6 @@
 		0AAF5189CB21A1DBF3246801 /* Pods-SummerCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SummerCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-SummerCode/Pods-SummerCode.release.xcconfig"; sourceTree = "<group>"; };
 		C12852A61B8705ED0000C263 /* SideMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideMenu.xib; path = Views/SideMenu.xib; sourceTree = "<group>"; };
 		C12852AA1B8708EB0000C263 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Common/HomeViewController.swift; sourceTree = "<group>"; };
-		C12852AC1B87117D0000C263 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = Common/NavigationController.swift; sourceTree = "<group>"; };
 		C12A1C551B7345BE00768049 /* FlickrImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlickrImageCell.swift; path = Modules/HanekeSwift/FlickrImageCell.swift; sourceTree = "<group>"; };
 		C12A1C571B7345E200768049 /* FlickrImagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlickrImagesCollectionViewController.swift; path = Modules/HanekeSwift/FlickrImagesCollectionViewController.swift; sourceTree = "<group>"; };
 		C12A1C5B1B734A4E00768049 /* LoaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoaderViewController.swift; path = Modules/FillableLoaders/LoaderViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		C12A1C651B734AF900768049 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Views/Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C12A1C671B734AF900768049 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Views/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C12A1C6A1B734B2000768049 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Application/Info.plist; sourceTree = "<group>"; };
+		C162B54B1B872495006B0C94 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C16A36501B73952200122F50 /* NDRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NDRefreshControl.swift; path = Vendor/NDRefresh/NDRefreshControl.swift; sourceTree = "<group>"; };
 		C1AB0FC01B733BA700DFAFBC /* SummerCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SummerCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1AB0FD71B733BA700DFAFBC /* SummerCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SummerCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,18 +83,10 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C12852A81B8707F80000C263 /* SideMenu */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SideMenu;
-			sourceTree = "<group>";
-		};
 		C12852A91B8708CE0000C263 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				C12852AA1B8708EB0000C263 /* HomeViewController.swift */,
-				C12852AC1B87117D0000C263 /* NavigationController.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -111,7 +103,6 @@
 		C12A1C531B73457100768049 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				C12852A81B8707F80000C263 /* SideMenu */,
 				C12A1C591B734A1200768049 /* FillableLoaders */,
 				C12A1C521B73455C00768049 /* HanekeSwift */,
 			);
@@ -148,6 +139,7 @@
 		C1AB0FB71B733BA700DFAFBC = {
 			isa = PBXGroup;
 			children = (
+				C162B54B1B872495006B0C94 /* README.md */,
 				C1AB0FC21B733BA700DFAFBC /* SummerCode */,
 				C1AB0FDA1B733BA700DFAFBC /* SummerCodeTests */,
 				C1AB0FC11B733BA700DFAFBC /* Products */,
@@ -367,9 +359,9 @@
 				C16A36511B73952200122F50 /* NDRefreshControl.swift in Sources */,
 				C12A1C5F1B734AB700768049 /* AppDelegate.swift in Sources */,
 				C12A1C5C1B734A4E00768049 /* LoaderViewController.swift in Sources */,
+				C162B54C1B872495006B0C94 /* README.md in Sources */,
 				C12A1C561B7345BE00768049 /* FlickrImageCell.swift in Sources */,
 				C12A1C581B7345E200768049 /* FlickrImagesCollectionViewController.swift in Sources */,
-				C12852AD1B87117D0000C263 /* NavigationController.swift in Sources */,
 				C12852AB1B8708EB0000C263 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

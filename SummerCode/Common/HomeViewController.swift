@@ -8,6 +8,8 @@
 
 import UIKit
 
+import SCLAlertView
+
 class HomeViewController: UITableViewController {
     
     var sideMenu: UIView!
@@ -121,6 +123,28 @@ class HomeViewController: UITableViewController {
             completion: {_ in}
         )
         
+    }
+    
+    // Menu Option selected
+    
+    @IBAction func infoPushed(sender: UIButton) {
+        SCLAlertView().showInfo("Info", subTitle: "Ok, that's fine")
+    }
+    
+    @IBAction func editPushed(sender: UIButton) {
+        SCLAlertView().showEdit("Edit", subTitle: "Ok, that's fine")
+    }
+    
+    @IBAction func noticePushed(sender: UIButton) {
+        SCLAlertView().showNotice("Notice", subTitle: "Ok, that's fine")
+    }
+    
+    @IBAction func warningPushed(sender: UIButton) {
+        SCLAlertView().showWarning("Warning", subTitle: "Mmmm, It's just a warning")
+    }
+    
+    @IBAction func errorPushed(sender: UIButton) {
+        SCLAlertView().showError("Error", subTitle: "Ok, luckily it's only a demo")
     }
 
 }
