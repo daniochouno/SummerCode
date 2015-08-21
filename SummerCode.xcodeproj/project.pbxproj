@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C12852A71B8705ED0000C263 /* SideMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12852A61B8705ED0000C263 /* SideMenu.xib */; };
+		C12852AB1B8708EB0000C263 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12852AA1B8708EB0000C263 /* HomeViewController.swift */; };
+		C12852AD1B87117D0000C263 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12852AC1B87117D0000C263 /* NavigationController.swift */; };
 		C12A1C561B7345BE00768049 /* FlickrImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12A1C551B7345BE00768049 /* FlickrImageCell.swift */; };
 		C12A1C581B7345E200768049 /* FlickrImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12A1C571B7345E200768049 /* FlickrImagesCollectionViewController.swift */; };
 		C12A1C5C1B734A4E00768049 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12A1C5B1B734A4E00768049 /* LoaderViewController.swift */; };
@@ -32,6 +35,9 @@
 
 /* Begin PBXFileReference section */
 		0AAF5189CB21A1DBF3246801 /* Pods-SummerCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SummerCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-SummerCode/Pods-SummerCode.release.xcconfig"; sourceTree = "<group>"; };
+		C12852A61B8705ED0000C263 /* SideMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideMenu.xib; path = Views/SideMenu.xib; sourceTree = "<group>"; };
+		C12852AA1B8708EB0000C263 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Common/HomeViewController.swift; sourceTree = "<group>"; };
+		C12852AC1B87117D0000C263 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = Common/NavigationController.swift; sourceTree = "<group>"; };
 		C12A1C551B7345BE00768049 /* FlickrImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlickrImageCell.swift; path = Modules/HanekeSwift/FlickrImageCell.swift; sourceTree = "<group>"; };
 		C12A1C571B7345E200768049 /* FlickrImagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlickrImagesCollectionViewController.swift; path = Modules/HanekeSwift/FlickrImagesCollectionViewController.swift; sourceTree = "<group>"; };
 		C12A1C5B1B734A4E00768049 /* LoaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoaderViewController.swift; path = Modules/FillableLoaders/LoaderViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +83,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C12852A81B8707F80000C263 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SideMenu;
+			sourceTree = "<group>";
+		};
+		C12852A91B8708CE0000C263 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C12852AA1B8708EB0000C263 /* HomeViewController.swift */,
+				C12852AC1B87117D0000C263 /* NavigationController.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		C12A1C521B73455C00768049 /* HanekeSwift */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +111,7 @@
 		C12A1C531B73457100768049 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C12852A81B8707F80000C263 /* SideMenu */,
 				C12A1C591B734A1200768049 /* FillableLoaders */,
 				C12A1C521B73455C00768049 /* HanekeSwift */,
 			);
@@ -117,6 +140,7 @@
 				C12A1C641B734AF900768049 /* LaunchScreen.xib */,
 				C12A1C661B734AF900768049 /* Main.storyboard */,
 				C12A1C621B734AEE00768049 /* Images.xcassets */,
+				C12852A61B8705ED0000C263 /* SideMenu.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -144,6 +168,7 @@
 		C1AB0FC21B733BA700DFAFBC /* SummerCode */ = {
 			isa = PBXGroup;
 			children = (
+				C12852A91B8708CE0000C263 /* Common */,
 				C12A1C5A1B734A2300768049 /* Application */,
 				C12A1C531B73457100768049 /* Modules */,
 				C12A1C611B734ADB00768049 /* Views */,
@@ -273,6 +298,7 @@
 				C12A1C691B734AF900768049 /* Main.storyboard in Resources */,
 				C12A1C631B734AEE00768049 /* Images.xcassets in Resources */,
 				C12A1C681B734AF900768049 /* LaunchScreen.xib in Resources */,
+				C12852A71B8705ED0000C263 /* SideMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +369,8 @@
 				C12A1C5C1B734A4E00768049 /* LoaderViewController.swift in Sources */,
 				C12A1C561B7345BE00768049 /* FlickrImageCell.swift in Sources */,
 				C12A1C581B7345E200768049 /* FlickrImagesCollectionViewController.swift in Sources */,
+				C12852AD1B87117D0000C263 /* NavigationController.swift in Sources */,
+				C12852AB1B8708EB0000C263 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
