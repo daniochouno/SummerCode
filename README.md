@@ -8,6 +8,8 @@ This project aims to be a starting point to deepen the knowledge of some of the 
 - [FillableLoaders](https://github.com/poolqf/FillableLoaders) for **Creating customizables loaders**, via CocoaPods
 - [Punctual](https://github.com/harlanhaskins/Punctual.swift) for **Easy management with dates**, via CocoaPods
 - [NDRefresh](https://github.com/Nextdoor/NDRefresh) for **Creating customizables Pull-To-Refresh views**, via Manual Installation
+- [SideMenu3D](https://github.com/themsaid/swift-sidemenu-3d) for **Implementing a Side Menu with 3D rotation**, via Manual Installation
+- [SCLAlertView](https://github.com/vikmeup/SCLAlertView-Swift) for **Creating animated Alert views**, via CocoaPods
 
 **Image caching**
 -----------------
@@ -33,7 +35,18 @@ In the 'PullToRefresh' the **NDRefresh** library has been used, which allows you
 
 **FillableLoaders** library allows create a view using any vector graphics that can be built through the CoreGraphics library. This example uses a graphic provided by the library, but you could use any other built similarly.
 
+**Side Menu**
+--------------------
+
+![SummerCode side menu screenshot](https://github.com/igzdanielmartinez/SummerCode/blob/master/Resources/Screenshots/SideMenu.png)
+
+Pressing the Menu button, a screenshot of the current view is taken. Then, the background image for the Side Menu is displayed and a 3D rotation is executed in the screenshot captured. Finally, the options are shown.
+
+When a menu option is selected, the **SCLAlertView** shows a distinct alert view.
+
+![SummerCode alert view screenshot](https://github.com/igzdanielmartinez/SummerCode/blob/master/Resources/Screenshots/SCLAlertView.png)
+
 ## Author
-Daniel Martmnez (daniel.martinez@intelygenz.com)
+Daniel Mart&iacute;nez (daniel.martinez@intelygenz.com)
 
 &copy; 2015
