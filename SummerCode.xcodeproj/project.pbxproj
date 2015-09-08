@@ -20,6 +20,7 @@
 		C162B54C1B872495006B0C94 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C162B54B1B872495006B0C94 /* README.md */; };
 		C16A36511B73952200122F50 /* NDRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A36501B73952200122F50 /* NDRefreshControl.swift */; };
 		C1AB0FDE1B733BA700DFAFBC /* SummerCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB0FDD1B733BA700DFAFBC /* SummerCodeTests.swift */; };
+		C1D2941F1B9EF001000B6045 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2941E1B9EF001000B6045 /* NavigationController.swift */; };
 		C3BF7A530B082EA861029DD2 /* Pods_SummerCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684A2F7645AB7658EDF65A9 /* Pods_SummerCode.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		C1AB0FD71B733BA700DFAFBC /* SummerCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SummerCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1AB0FDC1B733BA700DFAFBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1AB0FDD1B733BA700DFAFBC /* SummerCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummerCodeTests.swift; sourceTree = "<group>"; };
+		C1D2941E1B9EF001000B6045 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = Common/NavigationController.swift; sourceTree = "<group>"; };
 		D684A2F7645AB7658EDF65A9 /* Pods_SummerCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SummerCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E64AE439E4D99A9D8AB10384 /* Pods-SummerCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SummerCode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SummerCode/Pods-SummerCode.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				C12852AA1B8708EB0000C263 /* HomeViewController.swift */,
+				C1D2941E1B9EF001000B6045 /* NavigationController.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C16A36511B73952200122F50 /* NDRefreshControl.swift in Sources */,
+				C1D2941F1B9EF001000B6045 /* NavigationController.swift in Sources */,
 				C12A1C5F1B734AB700768049 /* AppDelegate.swift in Sources */,
 				C12A1C5C1B734A4E00768049 /* LoaderViewController.swift in Sources */,
 				C162B54C1B872495006B0C94 /* README.md in Sources */,

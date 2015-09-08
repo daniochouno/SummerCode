@@ -8,7 +8,7 @@
         <!--NavigationController-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
-                <navigationController title="Navigation" id="RMx-3f-FxP" userLabel="NavigationController" sceneMemberID="viewController">
+                <navigationController title="Navigation" id="RMx-3f-FxP" userLabel="NavigationController" customClass="NavigationController" customModule="SummerCode" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translucent="NO" id="Pmd-2v-anx">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
