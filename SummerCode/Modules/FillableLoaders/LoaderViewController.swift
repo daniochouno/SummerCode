@@ -10,30 +10,84 @@ import UIKit
 
 import FillableLoaders
 
+// Time:
+let LoaderTime: Int = 20
+
 class LoaderViewController: UIViewController {
 
     @IBOutlet weak var actionBarButton: UIBarButtonItem!
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var textLabel: UILabel!
     
-    var loader: FillableLoader = FillableLoader()
+    var loader: FillableLoader?
+    
+    var closeButton: UIButton = UIButton()
     
     var counter = NSTimer()
     var count = 0
     
-    @IBAction func startLoader(sender: AnyObject) {
+    override func viewDidLoad() {
+        setupViews()
+    }
+    
+    func setupViews() {
+        textLabel.text = "Press 'Start' button to show a Fillable Loader for \(LoaderTime) seconds"
+    }
+    
+    func showCloseButton() {
+        var margin: CGFloat = 30
+        closeButton.frame = CGRectMake(0, 0, 150, 35)
+        closeButton.center = CGPoint(x: view.frame.width/2, y: view.frame.height - 2*margin - 35)
+        closeButton.backgroundColor = UIColor.whiteColor()
+        closeButton.layer.cornerRadius = 5.0
+        closeButton.setTitle("Stop Loader", forState: .Normal)
+        closeButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        closeButton.titleLabel?.font = UIFont.systemFontOfSize(14)
+        closeButton.addTarget(self, action: "doAction:", forControlEvents: .TouchUpInside)
+        let window = UIApplication.sharedApplication().delegate?.window!
+        window!.addSubview(closeButton)
+    }
+    
+    func hideCloseButton() {
+        closeButton.removeFromSuperview()
+    }
+    
+    @IBAction func doAction(sender: AnyObject) {
+        if (loader != nil) {
+            stopLoader()
+        } else {
+            startLoader()
+        }
+    }
+    
+    func startLoader() {
         
-        loader = WavesLoader.createLoaderWithPath( path: buildBezierPath() )
-        loader.loaderColor = UIColor.orangeColor()
-        loader.loaderStrokeWidth = 0
-        loader.showLoader()
+        //loader = WavesLoader.createLoaderWithPath( path: buildBezierPath() )
+        loader = WavesLoader.createProgressBasedLoaderWithPath( path: buildBezierPath() )
+        loader!.loaderColor = UIColor.orangeColor()
+        loader!.loaderStrokeWidth = 0
+        loader!.showLoader()
         
         // Set count
-        count = 10
+        count = LoaderTime
         countLabel.text = String(count)
         countLabel.hidden = false
         
         // Init counter
         counter = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateCounter"), userInfo: nil, repeats: true)
+        
+        showCloseButton()
+        
+    }
+    
+    func stopLoader() {
+        
+        loader!.removeLoader(animated: true)
+        loader = nil
+        
+        counter.invalidate()
+        
+        hideCloseButton()
         
     }
     
@@ -44,9 +98,13 @@ class LoaderViewController: UIViewController {
         countLabel.text = String(count)
         if (count == 0) {
             counter.invalidate()
-            loader.removeLoader()
+            loader?.removeLoader()
             countLabel.hidden = true
         }
+    }
+    
+    func updateBarButton(title: String) {
+        actionBarButton.title = title
     }
     
     func buildBezierPath() -> CGPath {
