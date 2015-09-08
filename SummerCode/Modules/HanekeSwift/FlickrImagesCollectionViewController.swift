@@ -47,21 +47,28 @@ class FlickrImagesCollectionViewController: UICollectionViewController {
         refreshCtrl?.renderPullingClosure = renderPullingHandler
         refreshCtrl?.renderReadyForRefreshClosure = renderReadyForRefreshHandler
         
+        // First Load.
         loadDataFromServer() { success in
             dispatch_async(dispatch_get_main_queue()) {
                 self.collectionView?.reloadData()
+            }
+            dispatch_async(dispatch_get_main_queue()) {
+                // Display visible cells when data is fully loaded on first time.
+                self.updateVisibleImages()
             }
         }
         
     }
     
     override func viewDidAppear(animated: Bool) {
+        
         super.viewDidAppear(animated)
         
         // NOTE: configureForRefresh should be called when the view controller has completely laid out the view
         // and its subviews. If you call this method in viewDidLoad, the contentInset and contentOffset values
         // are not accurate due to the navigation bar and status bar.
         refreshCtrl!.configureForRefresh()
+        
     }
     
     // MARK: - Refresh control callback methods
@@ -71,6 +78,7 @@ class FlickrImagesCollectionViewController: UICollectionViewController {
     }
     
     func renderRefreshHandler(refreshControl: NDRefreshControl) {
+        
         var view = refreshControl.refreshView as! UIImageView
         view.image = UIImage(named: "RefreshImage1")
         
@@ -210,7 +218,7 @@ extension FlickrImagesCollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! FlickrImageCell
         let imageModel = self.images[indexPath.row]
-        cell.imageView.image = nil
+        cell.imageView.image = UIImage(named: "Placeholder")
         cell.imageURL = imageModel.url
         return cell
     }
@@ -220,13 +228,19 @@ extension FlickrImagesCollectionViewController {
 extension FlickrImagesCollectionViewController {
     
     override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        println("FlickrImagesCollectionViewController, scrollViewDidEndDecelerating")
         updateVisibleImages()
     }
     
+    // scrollViewDidEndDecelerating would not be called in some cases (for example, when the page is fully scrolled in place). Then use this:
+    override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if (!decelerate) {
+            updateVisibleImages()
+        }
+    }
+    
+    // Load images only for visible cells
     private func updateVisibleImages() {
         var cells = collectionView?.visibleCells()
-        println("FlickrImagesCollectionViewController, scrollViewDidEndDecelerating, visibleCells: \(cells!.count)")
         for flickrImageCell in cells! as! [FlickrImageCell] {
             if let url = NSURL(string: flickrImageCell.imageURL) {
                 downloadImage(flickrImageCell, url: url)
