@@ -14,4 +14,6 @@ class FlickrImageCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     
+    var imageURL: String!
+    
 }

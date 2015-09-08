@@ -195,6 +195,10 @@ class FlickrImagesCollectionViewController: UICollectionViewController {
             }.resume()
     }
 
+}
+
+extension FlickrImagesCollectionViewController {
+    
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -207,12 +211,29 @@ class FlickrImagesCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! FlickrImageCell
         let imageModel = self.images[indexPath.row]
         cell.imageView.image = nil
-        if let url = NSURL(string: imageModel.url!) {
-            downloadImage(cell, url: url)
-        }
+        cell.imageURL = imageModel.url
         return cell
     }
+    
+}
 
+extension FlickrImagesCollectionViewController {
+    
+    override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        println("FlickrImagesCollectionViewController, scrollViewDidEndDecelerating")
+        updateVisibleImages()
+    }
+    
+    private func updateVisibleImages() {
+        var cells = collectionView?.visibleCells()
+        println("FlickrImagesCollectionViewController, scrollViewDidEndDecelerating, visibleCells: \(cells!.count)")
+        for flickrImageCell in cells! as! [FlickrImageCell] {
+            if let url = NSURL(string: flickrImageCell.imageURL) {
+                downloadImage(flickrImageCell, url: url)
+            }
+        }
+    }
+    
 }
 
 extension FlickrImagesCollectionViewController : UICollectionViewDelegateFlowLayout {
@@ -227,5 +248,6 @@ extension FlickrImagesCollectionViewController : UICollectionViewDelegateFlowLay
         insetForSectionAtIndex section: Int) -> UIEdgeInsets {
             return UIEdgeInsets(top: 20.0, left: 20.0, bottom: 50.0, right: 20.0)
     }
+    
 }
 
