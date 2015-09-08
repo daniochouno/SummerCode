@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CC75ACDCE263D7F12110FBFB"
-               BuildableName = "Pods_SummerCode.framework"
-               BlueprintName = "Pods-SummerCode"
+               BlueprintIdentifier = "E771AB91E00779A93AF153D9"
+               BuildableName = "Font-Awesome-Swift.bundle"
+               BlueprintName = "Font-Awesome-Swift-Font-Awesome-Swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

@@ -1,6 +1,9 @@
-# PQFFillableLoaders
+![](https://img.shields.io/badge/language-swift-blue.svg)
+![](https://img.shields.io/badge/version-1.1.0-red.svg)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+# FillableLoaders
 
-####Collection of completely customizable loaders based in custom `CGPath`s written in Swift
+####Completely customizable progress based loaders drawn using custom `CGPath`s written in Swift
 
 <p align="center">
 <img src="Images/waves.gif" height="120px"/>
@@ -33,29 +36,58 @@ Rounded
 
 ###Demo:
 <p align="center">
+<img src="Images/progress.gif" height="200px"/>
+</p>
+
+<p align="center">
 <img src="Images/demo.png" height="300px"/>
 </p>
 
-###RoadMap:
+###Changelog:
 
-- [ ] CocoaPods support
-- [ ] Carthage support
-- [ ] Progress based animations
+- __1.1.0__ (2 Sep 2015)
+	- Added Carthage Support
+	- Added animation when hidding loader 
+- __1.0.1__ (17 Aug 2015)
+	- Removed unused code
+- __1.0.0__ (7 Aug 2015)
+	- Progress based loaders :tada:
+	- Added documentation to all the public properties and functions
+- __0.0.2 Initial Release__ (3 Aug 2015)
+
 
 ###Quick Start:
+#### - Progress based behaviour
+Therea are only 2 necessary things to make the progress based loader work:
+
+- Create the loader using `showProgressBasedLoaderWithPath(path:)` or  `createProgressBasedLoaderWithPath(path:)`
+- To update the fill progress, update the `progress` property of the loader, which goes from `0.0` to `1.0`
+
 #### - Creation
-There are two main methods to create the loaders:
+There are four main methods to create the loaders:
 
-`showLoaderWithPath:` and `createLoaderWithPath:`
+`showProgressBasedLoaderWithPath(path:)`, `createProgressBasedLoaderWithPath(path:)`,`showLoaderWithPath(path:)` and `createLoaderWithPath(path:)`
 
-`showLoaderWithPath:` is going to call the create one, and after it, is going to call the `showLoader` method.
+`showLoaderWithPath(path:)` or `showProgressBasedLoaderWithPath(path:)` are going to call the create one, and after it, are going to call the `showLoader()` method.
+
 So, it is just a helper method to do everything at once.
 
-If you want to create the loader, and not show it at the same moment, you can use `createLoaderWithPath:` to create it, and when you want to show it, just call `showLoader`
+If you want to create the loader, and not show it at the same moment, you can use `createProgressBasedLoaderWithPath(path:)` or `createLoaderWithPath(path:)` to create it, and when you want to show it, just call `showLoader()`
 
 Sample code:
 
-```
+``` swift
+		//PROGRESS BASED:
+		
+		var loader = WavesLoader.createProgressBasedLoaderWithPath(path)
+        loader.loaderColor = UIColor.redColor()
+        ...
+        //Do other stuff
+        ...
+        loader.showLoader()
+		
+		//BASIC
+
         var loader = WavesLoader.createLoaderWithPath(path)
         loader.loaderColor = UIColor.redColor()
         ...
@@ -65,11 +97,11 @@ Sample code:
 ```
 
 #### - Deletion:
-Just call the method `removeLoader` and the loader will disappear and will also be removed from its superview.
+Just call the method `removeLoader()` and the loader will disappear and will also be removed from its superview.
 
 Sample code:
 
-```
+``` swift
         loader.removeLoader()
 ```
 
@@ -77,6 +109,10 @@ Sample code:
 
 Apart from being able to customize the loader shape, you can also customize other properties of the loader. Take a look at the list:
 
+- __progressBased__: Bool	
+Indicates if the loader movement is progress based or not (Default: false)
+- __progress__: CGFloat		
+Loader fill progress from 0.0 to 1.0 . It will automatically fire an animation to update the loader fill progress
 - __backgroundColor__: UIColor?         
 Background of the loader view (transparent by default)
 - __loaderColor__: UIColor?             
@@ -96,22 +132,38 @@ Duration of the animations (10.0 by default)
 - __rectSize__: CGFloat                 
 Height of the loader view
 - __swing__: Bool                       
-Bool to indicate if the view has to swing when going up (small rotation, not available for the Plain loader)
+Bool to indicate if the loader has to swing when going up (small rotation, not available for the Plain loader)
+
 
 #####Extra property for `Spikes` and `Rounded` loaders:
 
-- __-spikeHeight__: CGFloat              //Height of the spike
+- __-spikeHeight__: CGFloat		
+Height of the spike
 
 
 ###Installation:
 ####• CocoaPods
+
+```
+use_frameworks!
+
+pod 'FillableLoaders', '~>1.0.1'
+```
 ####• Carthage
+
+```
+github "poolqf/FillableLoaders"
+```
 
 ###How to create my own CGPath?
 
+###### :warning: The CGPath bounds cannot exceed the bounds of the loaderView:
+- Width: Screen width
+- Height: rectSize property
+
 ####• Manually
 
-```
+``` swift
         let path = CGPathCreateMutable()
         CGPathMoveToPoint(path, nil, 0, height/2)
         CGPathAddLineToPoint(path, nil, width + 100, height/2)
@@ -130,7 +182,7 @@ In this case we can use it to create BezierPaths, and extract from there the CGP
 
 In the case of drawing a star, it is going to give us this code:
 
-```
+``` swift
 //// Star Drawing
 var starPath = UIBezierPath()
 starPath.moveToPoint(CGPointMake(180, 25))
@@ -151,9 +203,9 @@ starPath.fill()
 
 The only thing we have to do here is extract the CGPath from the UIBezierPath like so:
 
-```
+``` swift
 let myPath = starPath.CGPath
-var myLoader = WavesLoader.showLoaderWithPath(myPath)
+var myLoader = WavesLoader.showProgressBasedLoaderWithPath(myPath)
 ```
 
 ####• SVG + PaintCode
@@ -161,6 +213,10 @@ var myLoader = WavesLoader.showLoaderWithPath(myPath)
 A feature that I `LOVE` from PaintCode is that you can import an .svg file, and it is going to create the code to create its BezierPath. Completely awesome.
 
 That's how I did the Github and Twitter logos, for example.
+
+### Technical details:
+- Swift 1.2
+- Animations using CAKeyFrameAnimation
 
 ###Licenses
 All source code is licensed under the MIT License.

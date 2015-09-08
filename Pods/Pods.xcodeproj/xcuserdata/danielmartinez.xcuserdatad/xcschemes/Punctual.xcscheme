@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D14DA033AE035884842E3955"
+               BlueprintIdentifier = "ED129C98A3D367A44CA6DA53"
                BuildableName = "Punctual.framework"
                BlueprintName = "Punctual"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 public class SpikeLoader: FillableLoader {
+    
+    /// Height of the spike
     public var spikeHeight: CGFloat = 10.0
     
     internal override func generateLoader() {
@@ -38,7 +40,7 @@ public class SpikeLoader: FillableLoader {
         let path = CGPathCreateMutable()
         CGPathMoveToPoint(path, nil, 0, height/2)
 
-        var widthDiff = width/32
+        let widthDiff = width/32
         var nextX = widthDiff
         var nextY = height/2 + spikeHeight
         

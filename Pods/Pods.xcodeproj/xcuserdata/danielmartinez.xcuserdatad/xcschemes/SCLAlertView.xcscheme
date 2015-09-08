@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CC75ACDCE263D7F12110FBFB"
-               BuildableName = "Pods_SummerCode.framework"
-               BlueprintName = "Pods-SummerCode"
+               BlueprintIdentifier = "920F69A6A1BEE14CB94C8CBA"
+               BuildableName = "SCLAlertView.framework"
+               BlueprintName = "SCLAlertView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

@@ -14,12 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>HanekeSwift.xcscheme</key>
+		<key>Font-Awesome-Swift-Font-Awesome-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>NVActivityIndicatorView.xcscheme</key>
+		<key>Font-Awesome-Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>HanekeSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -34,10 +39,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SCLAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>631C6678A5720F53D59D1CDF8892BED0</key>
+		<key>0029E088F59F6FC1CE9188116C43F202</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1C4BFCCF6482AE12B80B01197A701959</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2935762DA8632F2B1C7216C734077889</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,22 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9FDE01015DBBCB7AC73C3D6DAB334FA5</key>
+		<key>A3571D7A79E14947E882DA9FEE24E373</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B05F4A1DDE26970E7874D9ADC90A7B24</key>
+		<key>AF6821D9C60648A222A9ADD3A043CFEF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C40AFC5009A5840179BB7D22BF4E5890</key>
+		<key>F16EC4BF2407ECB3BC43182342E4BFDF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D8A9E49CBEA1DB7480D1469B8FA9AE1F</key>
+		<key>FDC9C7D1A049FBBAE71FC8A90207A6A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

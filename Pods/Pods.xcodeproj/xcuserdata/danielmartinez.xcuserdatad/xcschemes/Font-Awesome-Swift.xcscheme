@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1929A0E4D5B0B106CA9F82A2"
-               BuildableName = "NVActivityIndicatorView.framework"
-               BlueprintName = "NVActivityIndicatorView"
+               BlueprintIdentifier = "FB2CEDB7171D5CC182BE0244"
+               BuildableName = "Font_Awesome_Swift.framework"
+               BlueprintName = "Font-Awesome-Swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

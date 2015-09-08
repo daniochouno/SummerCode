@@ -15,14 +15,22 @@ public class FillableLoader: UIView {
     internal var loaderView = UIView()
     internal var animate: Bool = false
     internal var extraHeight: CGFloat = 0
+    internal var oldYPoint: CGFloat = 0
     internal let mainBgColor = UIColor(white: 0.2, alpha: 0.6)
-    
     
     // MARK: Public Variables
     
-    var duration: NSTimeInterval = 10.0
-    var rectSize: CGFloat = UIScreen.mainScreen().bounds.height/6 + 30
-    var swing: Bool = true
+    /// Duration of the animation (Default:  10.0)
+    public var duration: NSTimeInterval = 10.0
+    
+    /// Loader background height (Default:  ScreenHeight/6 + 30)
+    public var rectSize: CGFloat = UIScreen.mainScreen().bounds.height/6 + 30
+    
+    /// A Boolean value that determines whether the loader should have a swing effect while going up (Default: true)
+    public var swing: Bool = true
+    
+    /// A Boolean value that determines whether the loader movement is progress based or not (Default: false)
+    public var progressBased: Bool = false
     
     
     // MARK: Custom Getters and Setters
@@ -34,7 +42,9 @@ public class FillableLoader: UIView {
     internal var _loaderStrokeWidth: CGFloat = 0.5
     internal var _loaderAlpha: CGFloat = 1.0
     internal var _cornerRadius: CGFloat = 0.0
+    internal var _progress: CGFloat = 0.0
     
+    /// Loader view background color (Default: Clear)
     override public var backgroundColor: UIColor? {
         get { return _backgroundColor }
         set {
@@ -44,6 +54,8 @@ public class FillableLoader: UIView {
             loaderView.layer.backgroundColor = newValue?.CGColor
         }
     }
+    
+    /// Filled loader color (Default: Blue)
     public var loaderColor: UIColor? {
         get { return _loaderColor }
         set {
@@ -51,6 +63,8 @@ public class FillableLoader: UIView {
             shapeLayer.fillColor = newValue?.CGColor
         }
     }
+    
+    /// Unfilled loader color (Default: White)
     public var loaderBackgroundColor: UIColor? {
         get { return _loaderBackgroundColor }
         set {
@@ -58,6 +72,8 @@ public class FillableLoader: UIView {
             strokeLayer.fillColor = newValue?.CGColor
         }
     }
+    
+    /// Loader outline line color (Default: Black)
     public var loaderStrokeColor: UIColor? {
         get { return _loaderStrokeColor }
         set {
@@ -65,6 +81,8 @@ public class FillableLoader: UIView {
             strokeLayer.strokeColor = newValue?.CGColor
         }
     }
+    
+    /// Loader outline line width (Default: 0.5)
     public var loaderStrokeWidth: CGFloat {
         get { return _loaderStrokeWidth }
         set {
@@ -72,6 +90,8 @@ public class FillableLoader: UIView {
             strokeLayer.lineWidth = newValue
         }
     }
+    
+    /// Loader view alpha (Default: 1.0)
     public var loaderAlpha: CGFloat {
         get { return _loaderAlpha }
         set {
@@ -79,6 +99,8 @@ public class FillableLoader: UIView {
             loaderView.alpha = newValue
         }
     }
+    
+    /// Loader view corner radius (Default: 0.0)
     public var cornerRadius: CGFloat {
         get { return _cornerRadius }
         set {
@@ -86,18 +108,69 @@ public class FillableLoader: UIView {
             loaderView.layer.cornerRadius = newValue
         }
     }
+
+    /// Loader fill progress from 0.0 to 1.0 . It will automatically fire an animation to update the loader fill progress (Default: 0.0)
+    public var progress: CGFloat {
+        get { return _progress }
+        set {
+            if (!progressBased || newValue > 1.0 || newValue < 0.0) { return }
+            _progress = newValue
+            applyProgress()
+        }
+    }
     
     
     // MARK: Initializers Methods
 
+    /**
+    Creates and SHOWS a loader with the given path
+    
+    :param: path Loader CGPath
+    
+    :returns: The loader that's already being showed
+    */
     public static func showLoaderWithPath(path: CGPath) -> Self {
         let loader = createLoaderWithPath(path: path)
         loader.showLoader()
         return loader
     }
+    /**
+    Creates and SHOWS a progress based loader with the given path
     
+    :param: path Loader CGPath
+    
+    :returns: The loader that's already being showed
+    */
+    public static func showProgressBasedLoaderWithPath(path: CGPath) -> Self {
+        let loader = createProgressBasedLoaderWithPath(path: path)
+        loader.showLoader()
+        return loader
+    }
+    
+    /**
+    Creates a loader with the given path
+    
+    :param: path Loader CGPath
+    
+    :returns: The created loader
+    */
     public static func createLoaderWithPath(path thePath: CGPath) -> Self {
-        var loader = self.init()
+        let loader = self.init()
+        loader.initialSetup()
+        loader.addPath(thePath)
+        return loader
+    }
+    
+    /**
+    Creates a progress based loader with the given path
+    
+    :param: path Loader CGPath
+    
+    :returns: The created loader
+    */
+    public static func createProgressBasedLoaderWithPath(path thePath: CGPath) -> Self {
+        let loader = self.init()
+        loader.progressBased = true
         loader.initialSetup()
         loader.addPath(thePath)
         return loader
@@ -140,6 +213,11 @@ public class FillableLoader: UIView {
     
     // MARK: Prepare Loader
     
+    /**
+    Shows the loader.
+    
+    Atention: do not use this method after creating a loader with `showLoaderWithPath(path:)`
+    */
     public func showLoader() {
         hidden = false
         animate = true
@@ -147,14 +225,33 @@ public class FillableLoader: UIView {
         startAnimating()
     }
     
-    public func removeLoader() {
-        hidden = false
-        animate = false
-        removeFromSuperview()
+    /**
+    Stops loader animations and removes it from its superview
+    */
+    public func removeLoader(animated: Bool = true) {
+        let completion: () -> () = {
+            self.hidden = false
+            self.animate = false
+            self.removeFromSuperview()
+        }
+        
+        if !animated {
+            completion()
+            return
+        }
+        
+        UIView.animateKeyframesWithDuration(0.2,
+            delay: 0,
+            options: .BeginFromCurrentState,
+            animations: {
+                self.alpha = 0.0
+            }) { _ in
+                completion()
+        }
     }
     
     internal func layoutPath() {
-        var maskingLayer = CAShapeLayer()
+        let maskingLayer = CAShapeLayer()
         maskingLayer.frame = loaderView.bounds
         maskingLayer.path = path
         
@@ -166,7 +263,7 @@ public class FillableLoader: UIView {
         strokeLayer.fillColor = loaderBackgroundColor?.CGColor
         loaderView.layer.addSublayer(strokeLayer)
         
-        var baseLayer = CAShapeLayer()
+        let baseLayer = CAShapeLayer()
         baseLayer.frame = loaderView.bounds
         baseLayer.mask = maskingLayer
         
@@ -174,6 +271,8 @@ public class FillableLoader: UIView {
         shapeLayer.lineWidth = 0.2
         shapeLayer.strokeColor = UIColor.blackColor().CGColor
         shapeLayer.frame = loaderView.bounds
+        oldYPoint = rectSize + extraHeight
+        shapeLayer.position = CGPoint(x: shapeLayer.position.x, y: oldYPoint)
         
         loaderView.layer.addSublayer(baseLayer)
         baseLayer.addSublayer(shapeLayer)
@@ -194,26 +293,38 @@ public class FillableLoader: UIView {
     //MARK: Animations
     
     internal func startMoving(up: Bool) {
+        if (progressBased) { return }
         let key = up ? "up" : "down"
-        let animation2: CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "position.y")
-        animation2.values = up ? [loaderView.frame.height/2 + rectSize/2, loaderView.frame.height/2 - rectSize/2 - extraHeight] : [loaderView.frame.height/2 - rectSize/2 - extraHeight, loaderView.frame.height/2 + rectSize/2]
-        animation2.duration = duration
-        animation2.removedOnCompletion = false
-        animation2.fillMode = kCAFillModeForwards
-        animation2.delegate = self
-        animation2.setValue(key, forKey: "animation")
-        shapeLayer.addAnimation(animation2, forKey: key)
+        let moveAnimation: CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "position.y")
+        moveAnimation.values = up ? [loaderView.frame.height/2 + rectSize/2, loaderView.frame.height/2 - rectSize/2 - extraHeight] : [loaderView.frame.height/2 - rectSize/2 - extraHeight, loaderView.frame.height/2 + rectSize/2]
+        moveAnimation.duration = duration
+        moveAnimation.removedOnCompletion = false
+        moveAnimation.fillMode = kCAFillModeForwards
+        moveAnimation.delegate = self
+        moveAnimation.setValue(key, forKey: "animation")
+        shapeLayer.addAnimation(moveAnimation, forKey: key)
     }
     
+    internal func applyProgress() {
+        let yPoint = (rectSize + extraHeight)*(1-progress)
+        let progressAnimation: CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "position.y")
+        progressAnimation.values = [oldYPoint, yPoint]
+        progressAnimation.duration = 0.2
+        progressAnimation.removedOnCompletion = false
+        progressAnimation.fillMode = kCAFillModeForwards
+        shapeLayer.addAnimation(progressAnimation, forKey: "progress")
+        oldYPoint = yPoint
+    }
+
     internal func startswinging() {
-        let animation: CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
-        animation.values = [0, randomAngle(), -randomAngle(), randomAngle(), -randomAngle(), randomAngle(), 0]
-        animation.duration = 12.0
-        animation.removedOnCompletion = false
-        animation.fillMode = kCAFillModeForwards
-        animation.delegate = self
-        animation.setValue("rotation", forKey: "animation")
-        shapeLayer.addAnimation(animation, forKey: "rotation")
+        let swingAnimation: CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
+        swingAnimation.values = [0, randomAngle(), -randomAngle(), randomAngle(), -randomAngle(), randomAngle(), 0]
+        swingAnimation.duration = 12.0
+        swingAnimation.removedOnCompletion = false
+        swingAnimation.fillMode = kCAFillModeForwards
+        swingAnimation.delegate = self
+        swingAnimation.setValue("rotation", forKey: "animation")
+        shapeLayer.addAnimation(swingAnimation, forKey: "rotation")
     }
     
     internal func randomAngle() -> Double {

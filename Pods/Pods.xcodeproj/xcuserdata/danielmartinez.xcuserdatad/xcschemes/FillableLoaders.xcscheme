@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BEF8C4E08C54087192C90A4A"
+               BlueprintIdentifier = "690910136F541A42B7CD05B6"
                BuildableName = "FillableLoaders.framework"
                BlueprintName = "FillableLoaders"
                ReferencedContainer = "container:Pods.xcodeproj">
