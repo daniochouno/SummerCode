@@ -8,6 +8,7 @@
 
 import UIKit
 
+import Alamofire
 import Haneke
 import Punctual
 
@@ -19,6 +20,10 @@ struct ImageModel {
 let FlickrApiKey = "ec986123d7f4c232bf632ab3a7fa7ea4"
 let tags = "beach"
 
+// Preload parameters:
+let PageSize = 100
+let PreloadMargin = 25
+
 class FlickrImagesCollectionViewController: UICollectionViewController {
 
     @IBOutlet weak var switchBarButton: UIBarButtonItem!
@@ -26,9 +31,16 @@ class FlickrImagesCollectionViewController: UICollectionViewController {
     private var cacheEnabled = false
     
     private let reuseIdentifier = "FlickrImageCell"
-    private var images = [ImageModel]()
     
-    let surl = "https://api.flickr.com/services/rest/?format=json&nojsoncallback=1&method=flickr.photos.search&api_key=\(FlickrApiKey)&tags=\(tags)&extras=url_q"
+    let operationQueue = NSOperationQueue()
+    
+    // Data:
+    private var data = [ImageModel]()
+    private var preloaded = [Int: [ImageModel]]()
+    private var preloadOperations = [Int: NSOperation]()
+    private var currentPage: Int = 0
+    
+    let RequestURL = "https://api.flickr.com/services/rest/?format=json&nojsoncallback=1&method=flickr.photos.search&api_key=\(FlickrApiKey)&tags=\(tags)&extras=url_q&per_page=\(PageSize)"
     
     var session = NSURLSession.sharedSession()
     var cache = Shared.imageCache
@@ -47,16 +59,8 @@ class FlickrImagesCollectionViewController: UICollectionViewController {
         refreshCtrl?.renderPullingClosure = renderPullingHandler
         refreshCtrl?.renderReadyForRefreshClosure = renderReadyForRefreshHandler
         
-        // First Load.
-        loadDataFromServer() { success in
-            dispatch_async(dispatch_get_main_queue()) {
-                self.collectionView?.reloadData()
-            }
-            dispatch_async(dispatch_get_main_queue()) {
-                // Display visible cells when data is fully loaded on first time.
-                self.updateVisibleImages()
-            }
-        }
+        // First Load:
+        loadFirstDataFromServer({ success in })
         
     }
     
@@ -94,13 +98,15 @@ class FlickrImagesCollectionViewController: UICollectionViewController {
         session = NSURLSession.sharedSession()
         cache = Shared.imageCache
         
-        loadDataFromServer() { success in
-            dispatch_async(dispatch_get_main_queue()) {
-                view.stopAnimating()
-                refreshControl.endRefresh()
-                self.collectionView?.reloadData()
-            }
-        }
+        // Clear data:
+        data = [ImageModel]()
+        preloaded = [Int: [ImageModel]]()
+        preloadOperations = [Int: NSOperation]()
+        
+        loadFirstDataFromServer({ success in
+            view.stopAnimating()
+            refreshControl.endRefresh()
+        })
         
     }
     
@@ -124,25 +130,60 @@ class FlickrImagesCollectionViewController: UICollectionViewController {
         switchBarButton.title = (cacheEnabled) ? "Disable" : "Enable"
     }
     
-    func loadDataFromServer(completion: (success: Bool) -> Void) {
+    func loadFirstDataFromServer(completion: (success: Bool) -> Void) {
+        currentPage = 0
+        loadDataFromServer(currentPage) { success in
+            self.data = self.preloaded[self.currentPage]!
+            dispatch_async(dispatch_get_main_queue()) {
+                self.collectionView?.reloadData()
+            }
+            dispatch_async(dispatch_get_main_queue()) {
+                self.updateVisibleImages()
+            }
+            dispatch_async(dispatch_get_main_queue()) {
+                completion(success:true)
+            }
+        }
+    }
+    
+    func loadDataFromServer(page: Int, completion: (success: Bool) -> Void) {
         
-        let request = NSURLRequest(URL: NSURL(string: surl)!)
-        
+        // Set Page in request:
+        var _url = RequestURL + "&page=\(page + 1)"
+        let request = NSURLRequest(URL: NSURL(string: _url)!)
+    
+        // Initialize array to prevent similar multiple requests:
+        self.preloaded[page] = [ImageModel]()
+
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             
             if (error != nil) {
+                // An error appears, set array for page to nil:
+                self.preloaded[page] = nil
                 return
             }
             
-            var photos: NSArray = NSArray()
             let json = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error:nil) as! NSDictionary
+            var photos: NSArray = NSArray()
             let results = json["photos"] as! NSDictionary
             photos = results["photo"] as! NSArray
             
-            self.images = [ImageModel]()
+            var array = [ImageModel]()
             for photo in photos {
                 let imageModel = ImageModel(title: photo["title"] as? String, url: photo["url_q"] as? String)
-                self.images.append(imageModel)
+                array.append(imageModel)
+            }
+            self.preloaded[page] = array
+            
+            if (self.currentPage == (page - 1)) {
+                
+                // Data downloaded are in the next page. We need to add them to the main data array.
+                self.data += self.preloaded[page]!
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.collectionView?.reloadData()
+                })
+                
             }
             
             completion(success: true)
@@ -212,15 +253,43 @@ extension FlickrImagesCollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.images.count
+        return self.data.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        // Preload data if index is near to the end:
+        preloadDataIfNeededForRow(indexPath.row)
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! FlickrImageCell
-        let imageModel = self.images[indexPath.row]
+        let imageModel = self.data[indexPath.row]
+        cell.timeLabel.text = ""
         cell.imageView.image = UIImage(named: "Placeholder")
         cell.imageURL = imageModel.url
         return cell
+        
+    }
+    
+    private func preloadDataIfNeededForRow(row: Int) {
+        
+        currentPage = (row / PageSize)
+        if (needsLoadDataForPage(currentPage)) {
+            preloadDataForPage(currentPage)
+        }
+        
+        let nextPage = ((row + PreloadMargin) / PageSize)
+        if ((nextPage > currentPage) && (needsLoadDataForPage(nextPage))) {
+            preloadDataForPage(nextPage)
+        }
+        
+    }
+    
+    private func needsLoadDataForPage(page: Int) -> Bool {
+        return (self.preloaded[page] == nil)
+    }
+    
+    private func preloadDataForPage(page: Int) {
+        loadDataFromServer(page, completion: { success in })
     }
     
 }
@@ -231,7 +300,7 @@ extension FlickrImagesCollectionViewController {
         updateVisibleImages()
     }
     
-    // scrollViewDidEndDecelerating would not be called in some cases (for example, when the page is fully scrolled in place). Then use this:
+    // 'scrollViewDidEndDecelerating' would not be called in some cases (for example, when the page is fully scrolled in place). Then use this:
     override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if (!decelerate) {
             updateVisibleImages()
