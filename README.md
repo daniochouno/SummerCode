@@ -14,7 +14,7 @@ This project aims to be a starting point to deepen the knowledge of some of the 
 **Image caching**
 -----------------
 
-![SummerCode image caching screenshot](https://github.com/igzdanielmartinez/SummerCode/blob/master/Resources/Screenshots/ImageCaching.png) 
+![SummerCode image caching screenshot](https://github.com/daniochouno/SummerCode/blob/master/Resources/Screenshots/ImageCaching.png) 
 
 A collection of URLs of images is downloaded from **Flickr** using their API. Pressing the top right button you can enable or disable caching with **Haneke**.
 
@@ -31,22 +31,22 @@ In the 'PullToRefresh' the **NDRefresh** library has been used, which allows you
 **Fillable Loaders**
 --------------------
 
-![SummerCode fillable loaders screenshot](https://github.com/igzdanielmartinez/SummerCode/blob/master/Resources/Screenshots/FillableLoaders.png)
+![SummerCode fillable loaders screenshot](https://github.com/daniochouno/SummerCode/blob/master/Resources/Screenshots/FillableLoaders.png)
 
 **FillableLoaders** library allows create a view using any vector graphics that can be built through the CoreGraphics library. This example uses a graphic provided by the library, but you could use any other built similarly.
 
 **Side Menu**
 --------------------
 
-![SummerCode side menu screenshot](https://github.com/igzdanielmartinez/SummerCode/blob/master/Resources/Screenshots/SideMenu.png)
+![SummerCode side menu screenshot](https://github.com/daniochouno/SummerCode/blob/master/Resources/Screenshots/SideMenu.png)
 
 Pressing the Menu button, a screenshot of the current view is taken. Then, the background image for the Side Menu is displayed and a 3D rotation is executed in the screenshot captured. Finally, the options are shown.
 
 When a menu option is selected, the **SCLAlertView** shows a distinct alert view.
 
-![SummerCode alert view screenshot](https://github.com/igzdanielmartinez/SummerCode/blob/master/Resources/Screenshots/SCLAlertView.png)
+![SummerCode alert view screenshot](https://github.com/daniochouno/SummerCode/blob/master/Resources/Screenshots/SCLAlertView.png)
 
 ## Author
-Daniel Mart&iacute;nez (daniel.martinez@intelygenz.com)
+Daniel Mart&iacute;nez (dmartinez@danielmartinez.info)
 
 &copy; 2015
